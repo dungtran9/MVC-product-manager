@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" >
+<form method="post" >
     <h3>Creat Product</h3>
     Name:
     <input type="text" name="name"><br>

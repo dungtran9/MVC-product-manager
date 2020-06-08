@@ -1,28 +1,10 @@
 <?php
-use controller\ProductController;
-include_once "model/DBconnection.php";
-include_once "model/Product.php";
-include_once "model/ProductDB.php";
-include_once "controller/ProductController.php";
+use App\controller\ProductController;
+$load=require_once __DIR__ . '/vendor/autoload.php';
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : '';
 $controller = new ProductController();
-
-switch ($page) {
-    case 'add':
-        $controller->add();
-        break;
-    case 'delete':
-        $controller->delete();
-        break;
-    case 'edit':
-        $controller->edit();
-        break;
-    default:
-        $controller->index();
-        break;
-}
-
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -33,6 +15,24 @@ switch ($page) {
     <title>Document</title>
 </head>
 <body>
+
+  <?php
+  switch ($page) {
+      case 'add':
+          $controller->add();
+          break;
+      case 'delete':
+          $controller->delete();
+          break;
+      case 'edit':
+          $controller->edit();
+          break;
+      default:
+          $controller->index();
+          break;
+  }
+
+  ?>
 
 </body>
 </html>

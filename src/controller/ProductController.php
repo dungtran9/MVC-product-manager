@@ -1,9 +1,9 @@
 <?php
 
-namespace controller;
-use \model\Product;
-use model\DBconnection;
-use model\ProductDB;
+namespace App\controller;
+use App\model\ProductDB;
+use App\model\DBconnection;
+use App\model\Product;
 
 class ProductController
 {
@@ -17,19 +17,19 @@ class ProductController
     }
     public function index(){
         $products= $this->producDB->getAll();
-        include "view/list.php";
+        include "src/view/list.php";
     }
     public function add($product){
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            include 'view/add.php';}
+            include 'src/view/add.php';}
         else {
-            $name = $_POST['name'];
-            $price = $_POST['price'];
-            $description = $_POST['description'];
-            $producer=$_POST['producer'];
+            $name = $_REQUEST['name'];
+            $price = $_REQUEST['price'];
+            $description = $_REQUEST['description'];
+            $producer=$_REQUEST['producer'];
             $product = new Product($name,$price,$description,$producer);
             $this->producDB->Creat($product);
-            include 'view/add.php';
+            include 'src/view/add.php';
         }
     }
 }

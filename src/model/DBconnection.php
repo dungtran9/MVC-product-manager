@@ -1,5 +1,5 @@
 <?php
-namespace model;
+namespace App\model;
 use PDO;
 
 class DBconnection
